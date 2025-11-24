@@ -1,0 +1,582 @@
+/* ========= 1) أساسيات و ألوان عامة ========= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-main: #050816;
+  --bg-elevated: #0b1020;
+  --bg-card: #111827;
+  --accent-pink: #ff3b7f;
+  --accent-cyan: #00f5ff;
+  --accent-yellow: #ffd166;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-soft: #1f2937;
+  --danger: #ef4444;
+  --success: #22c55e;
+  --shadow-soft: 0 18px 35px rgba(0,0,0,0.6);
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --transition-fast: 0.15s ease-out;
+  --transition-med: 0.25s ease-out;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-main);
+  background: radial-gradient(circle at top, #1e293b 0, #020617 45%, #000 100%);
+  min-height: 100%;
+}
+
+/* خلفية خفيفة زي أجواء الملاهي */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,59,127,0.12) 0, transparent 50%),
+    radial-gradient(circle at 80% 0%, rgba(0,245,255,0.12) 0, transparent 55%),
+    radial-gradient(circle at 50% 100%, rgba(255,209,102,0.18) 0, transparent 60%);
+  opacity: 0.9;
+  z-index: -1;
+}
+
+/* ========= 2) حاويات عامة ========= */
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+}
+
+h1, h2, h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+p {
+  margin: 0 0 10px;
+  color: var(--text-muted);
+}
+
+/* ========= 3) Buttons ستايل موحد ========= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-cyan));
+  color: #0b1020;
+  box-shadow: 0 10px 25px rgba(0,245,255,0.4);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 16px 30px rgba(0,245,255,0.55);
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #b91c1c, var(--danger));
+  color: #fef2f2;
+  box-shadow: 0 10px 25px rgba(248,113,113,0.35);
+}
+
+.btn-danger:hover {
+  transform: translateY(-1.5px) scale(1.01);
+  box-shadow: 0 16px 30px rgba(248,113,113,0.5);
+}
+
+.btn-outline {
+  border: 1px solid var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: rgba(15,118,110,0.3);
+  transform: translateY(-1px);
+}
+
+/* full-width button option */
+.btn-block {
+  width: 100%;
+}
+
+/* ========= 4) فورمات عامة (Login / Edit / Add / Register) ========= */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(15,23,42,0.92);
+  border-radius: var(--radius-lg);
+  padding: 18px 18px 20px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="datetime-local"] {
+  background: #020617;
+  border-radius: 10px;
+  border: 1px solid #1e293b;
+  padding: 9px 11px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+}
+
+input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 1px rgba(0,245,255,0.4);
+  background: #020617;
+}
+
+input::placeholder {
+  color: #6b7280;
+}
+
+/* رسائل تنبيه */
+.alert {
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.alert-error {
+  background: rgba(248,113,113,0.08);
+  border: 1px solid rgba(248,113,113,0.6);
+  color: #fecaca;
+}
+
+.alert-success {
+  background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.6);
+  color: #bbf7d0;
+}
+
+/* ========= 5) Layout الأدمن ========= */
+
+.admin-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 230px;
+  background: radial-gradient(circle at top left, #1f2937 0, #020617 50%, #000 100%);
+  border-right: 1px solid rgba(15,23,42,0.9);
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sidebar .logo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.sidebar .menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar .menu li a {
+  display: block;
+  padding: 9px 11px;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background var(--transition-med), color var(--transition-med), transform var(--transition-fast);
+}
+
+.sidebar .menu li a:hover {
+  background: linear-gradient(135deg, rgba(255,59,127,0.5), rgba(0,245,255,0.25));
+  color: #0f172a;
+  transform: translateX(3px);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 24px 24px 40px;
+}
+
+.main-content h2 {
+  margin-bottom: 18px;
+  font-size: 1.3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.main-content h2::after {
+  content: "";
+  width: 55px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-pink), var(--accent-cyan));
+}
+
+/* ========= 6) الجداول (Manage Events / Bookings) ========= */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(15,23,42,0.92);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  font-size: 0.9rem;
+}
+
+.table thead {
+  background: linear-gradient(90deg, rgba(255,59,127,0.15), rgba(0,245,255,0.15));
+}
+
+.table th,
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #111827;
+  text-align: left;
+}
+
+.table th {
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: rgba(15,23,42,0.86);
+}
+
+.table tbody tr:hover {
+  background: rgba(30,64,175,0.35);
+}
+
+/* روابط داخل الجدول */
+.table a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  font-size: 0.86rem;
+}
+
+.table a:hover {
+  color: var(--accent-yellow);
+}
+
+/* ========= 7) Login / Small Centered Forms ========= */
+
+.centered-auth {
+  max-width: 420px;
+  margin: 80px auto;
+}
+
+/* ========= 8) ستايل عام لواجهة اليوزر (اختياري لكن جاهز) ========= */
+
+/* Header للـ customer pages */
+.site-header {
+  width: 100%;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(circle at top, rgba(15,23,42,0.95) 0, rgba(2,6,23,0.98) 55%);
+  border-bottom: 1px solid rgba(15,23,42,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.site-header .logo-mark {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-header .logo-mark span:first-child {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: conic-gradient(from 220deg, var(--accent-pink), var(--accent-cyan), var(--accent-yellow), var(--accent-pink));
+  box-shadow: 0 0 18px rgba(0,245,255,0.45);
+}
+
+.site-header .logo-mark span:last-child {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-links a {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--accent-cyan);
+}
+
+/* Hero / Banner */
+.hero {
+  margin: 22px auto 10px;
+  padding: 18px 18px 20px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(15,23,42,0.95), rgba(30,64,175,0.95));
+  border: 1px solid rgba(148,163,184,0.4);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  grid-template-columns: minmax(0,2.1fr) minmax(0,1.4fr);
+  gap: 14px;
+}
+
+.hero-main h1 {
+  font-size: 1.7rem;
+  margin-bottom: 6px;
+}
+
+.hero-main p {
+  font-size: 0.92rem;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(148,163,184,0.4);
+  margin-bottom: 8px;
+}
+
+.hero-tag-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent-yellow);
+  box-shadow: 0 0 12px rgba(250,204,21,0.8);
+}
+
+/* Side "ticket" style */
+.hero-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ========= 9) Cards للفعاليات (home.php) ========= */
+
+.card-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 16px;
+}
+
+/* Responsiveness for cards */
+@media (max-width: 992px) {
+  .card-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(1,minmax(0,1fr));
+  }
+}
+
+.event-card {
+  position: relative;
+  background: rgba(15,23,42,0.96);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(31,41,55,0.9);
+  box-shadow: var(--shadow-soft);
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med);
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(0,245,255,0.12) 0, transparent 45%);
+  opacity: 0;
+  transition: opacity var(--transition-med);
+}
+
+.event-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(96,165,250,0.85);
+  box-shadow: 0 22px 45px rgba(15,23,42,0.9);
+}
+
+.event-card:hover::before {
+  opacity: 1;
+}
+
+.event-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.event-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.event-badge {
+  align-self: flex-start;
+  margin-top: 2px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: rgba(56,189,248,0.13);
+  border: 1px solid rgba(56,189,248,0.7);
+  color: #e0f2fe;
+}
+
+.price-tag {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent-yellow);
+}
+
+.event-actions {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Book Now button on hover فقط لو حابين */
+.event-card .btn-book {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-med), transform var(--transition-med);
+}
+
+.event-card:hover .btn-book {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========= 10) Footer بسيط ========= */
+
+.site-footer {
+  margin-top: 30px;
+  padding: 14px 24px 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(15,23,42,0.9);
+}
+
+/* ========= 11) Responsive الأدمن ========= */
+
+@media (max-width: 840px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+  }
+
+  .sidebar .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .main-content {
+    padding: 18px 16px 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .hero-side {
+    align-items: flex-start;
+  }
+}
