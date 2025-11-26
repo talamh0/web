@@ -1,0 +1,359 @@
+الستايل 
+
+/* ================================
+   GLOBAL PAGE STYLE
+================================ */
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f5;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   AUTH (Login + Register)
+================================ */
+.auth-box {
+  width: 360px;
+  margin: 100px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #0066ff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056d1;
+}
+
+.error {
+  background: #ffe5e5;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #ff3333;
+  border-radius: 4px;
+}
+
+.success {
+  background: #e7ffe7;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-left: 4px solid #22bb33;
+  border-radius: 4px;
+}
+
+.link {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.link a {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+.link a:hover {
+  text-decoration: underline;
+}
+
+/* ================================
+   HEADER (Home, Events, Cart)
+================================ */
+header {
+  background: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ddd;
+}
+
+header a {
+  text-decoration: none;
+  color: #0066ff;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+header span {
+  font-weight: bold;
+}
+
+/* ================================
+   HOME PAGE
+================================ */
+.home-section {
+  width: 450px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #555;
+  margin-top: -10px;
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.home-btn {
+  background: #0066ff;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.home-btn:hover {
+  background: #0056d1;
+}
+
+.logout-btn {
+  background: #ff4444;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+
+/* ================================
+   EVENT PAGE
+================================ */
+.event-details {
+  width: 80%;
+  max-width: 900px;
+  margin: 50px auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.event-details img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ticket-form {
+  margin-top: 20px;
+}
+
+.ticket-form input[type="number"] {
+  width: 120px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.ticket-form button {
+  width: 200px;
+  margin-top: 12px;
+}
+
+/* ================================
+   CART PAGE
+================================ */
+.cart-section {
+  width: 85%;
+  max-width: 900px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.cart-table th {
+  background: #0066ff;
+  color: white;
+}
+
+.btn-empty {
+  background: #999;
+  margin-left: 10px;
+}
+
+.btn-empty:hover {
+  background: #777;
+}
+
+/* ================================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 50px;
+  color: #666;
+}
+/* ====== Header ====== */
+header {
+    padding: 15px 30px;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header .logo {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+header .user-actions span {
+    margin-right: 15px;
+}
+
+header .user-actions a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+}
+
+/* ====== Main / Grid ====== */
+main {
+    padding: 20px 30px;
+}
+
+.events-grid {
+    display: grid;
+    gap: 20px;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr); /* 3 أعمدة على الشاشات الكبيرة */
+}
+
+.event-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.event-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.event-card .event-info {
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+}
+
+.event-card .event-info h3 {
+    margin: 10px 0 5px 0;
+    font-size: 1.2em;
+}
+
+.event-card .event-info p {
+    margin: 0;
+    color: #555;
+}
+
+/* Book Now button */
+.event-card button {
+    margin: 10px;
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.event-card:hover button {
+    opacity: 1;
+}
+
+/* ====== Responsive ====== */
+/* Tablet: 2 أعمدة من 769px إلى 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile: أقل من 769px → 1 عمود */
+@media (max-width: 768px) {
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ====== Footer ====== */
+footer {
+    padding: 15px 30px;
+    background-color: #f8f8f8;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}

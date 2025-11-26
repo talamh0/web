@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.role-box {
+    width: 350px;
+    margin: 100px auto;
+    padding: 30px 20px;
+    background-color: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.role-box h2 {
+    margin-bottom: 20px;
+}
+
+.switch-wrapper {
+    position: relative;
+    width: 200px;
+    margin: 20px auto;
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.switch-wrapper input[type="radio"] {
+    display: none;
+}
+
+.switch-label {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    z-index: 2;
+    user-select: none;
+    transition: color 0.3s;
+    color: #161616;
+    font-weight: bold;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #0077cc;
+    border-radius: 30px;
+    transition: 0.3s;
+    z-index: 1;
+}
+
+/* حركة السلايدر */
+#admin:checked ~ .switch-label.admin + .slider,
+#admin:checked ~ .slider {
+    transform: translateX(100%);
+}
+
+#user:checked ~ .switch-label.user + .slider,
+#user:checked ~ .slider {
+    transform: translateX(0%);
+}
+
+/* تغيير لون النص المختار */
+#user:checked ~ .switch-label.user {
+    color: #fff;
+}
+
+#admin:checked ~ .switch-label.admin {
+    color: #fff;
+}
+
+button {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005fa3;
+}
